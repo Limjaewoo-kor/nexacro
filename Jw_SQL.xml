@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.nexacro.jw.service.impl.JwMapper">
+
+	
+	<select id="selectjw" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT
+		   ID 
+		 ,NAME
+		 ,KINDS
+		 ,TEL 
+		 ,CREATE_DATE
+		FROM JW_COMPANY
+		WHERE 1=1
+	  <if test="keyword != null and keyword != ''">
+            <choose>
+                <when test="searchType == 'ID'">
+            AND ID LIKE '%' || #{keyword} || '%'
+          </when>
+                <when test="searchType == 'NAME'">
+            AND  NAME LIKE '%' || #{keyword} || '%'
+          </when>
+        </choose>
+      </if>
+    </select>
+    
+    	
+	<insert id="insertjw" parameterType="java.util.Map">
+		INSERT INTO JW_COMPANY(
+		   ID 
+		 ,NAME
+		 ,KINDS
+		 ,TEL 
+		 ,CREATE_DATE
+		)
+		VALUES (	
+		 JW_COMPANY_SEQ.NEXTVAL
+		, #{NAME}
+		, #{KINDS}
+		, #{TEL}
+		, SYSDATE
+		 )
+
+    </insert>
+    
+    <insert id="insertsub" parameterType="java.util.Map">
+		INSERT INTO JW_PRODUCT(
+		   PRO_ID 
+		 ,PRO_NAME
+		 ,ORIGIN
+		 ,WEIGHT
+		 ,COM_KEY
+		)
+		VALUES (	
+		 JW_PRODUCT_SEQ.NEXTVAL
+		, #{PRO_NAME}
+		, #{ORIGIN}
+		, #{WEIGHT}
+		, #{ID}
+		 )
+    </insert>
+    
+     <delete id="deletejw" parameterType="java.util.Map">
+      DELETE FROM JW_COMPANY
+      WHERE ID = #{ID, jdbcType=INTEGER}
+    </delete>
+     <delete id="deletejw_pro" parameterType="java.util.Map">
+      DELETE FROM JW_PRODUCT
+      WHERE PRO_ID = #{ID, jdbcType=INTEGER}
+    </delete>
+    
+    <select id="gridsel" parameterType="java.util.Map" resultType="java.util.Map">
+	select 
+	b.pro_id
+	, b.pro_name
+	, b.origin
+	, b.weight
+	, b.com_key
+	 from jw_company a 
+	 join jw_product b 
+	 on a.ID = b.com_key and a.ID= #{ID, jdbcType=INTEGER}
+    </select>
+    
+    <update id="updatejw" parameterType="java.util.Map">
+		UPDATE JW_COMPANY
+		SET
+		 NAME = #{NAME}
+		 ,KINDS = #{KINDS, jdbcType=VARCHAR}
+		 ,TEL = #{TEL, jdbcType=VARCHAR}
+		 ,CREATE_DATE = SYSDATE
+		 WHERE ID =  #{ID,jdbcType=VARCHAR}
+
+    </update>
+    
+    <update id="updatesub" parameterType="java.util.Map">
+         UPDATE JW_PRODUCT
+		SET
+         PRO_NAME = #{PRO_NAME, jdbcType=VARCHAR}
+		 ,ORIGIN = #{ORIGIN, jdbcType=VARCHAR}
+		 ,WEIGHT = #{WEIGHT, jdbcType=VARCHAR}
+		 ,COM_KEY= #{ID, jdbcType=VARCHAR}
+		 WHERE PRO_ID = #{PRO_ID,jdbcType=VARCHAR}
+    </update>
+        <select id="pro_up_sel" parameterType="java.util.Map" resultType="java.util.Map">
+    	
+    	select pro_id from jw_product where pro_id = #{PRO_ID,jdbcType=VARCHAR}
+      </select>
+    
+      <insert id="insertfile" parameterType="java.util.Map">
+		INSERT INTO JW_file(
+		   chk
+		 ,realFileName
+		 ,displayFileName
+		 ,ID_file
+		)
+		VALUES (	
+		 0
+		, #{name}
+		, #{name}
+		,JW_file_SEQ.NEXTVAL
+		 )
+    </insert>
+    
+       <select id="selfile" parameterType="java.util.Map" resultType="java.util.Map">
+	select 
+	CHK
+	,REALFILENAME
+	,DISPLAYFILENAME 
+	from 
+	jw_file
+    </select>
+</mapper>
