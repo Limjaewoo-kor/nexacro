@@ -1,0 +1,817 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="lim" width="1280" height="720" titletext="New Form" onload="FileDownTransfer_onload" background="#a0fdfd">
+    <Layouts>
+      <Layout height="720" mobileorientation="landscape" width="1280">
+        <Combo id="searchType" taborder="0" text="id" left="40" top="70" width="73" height="30" value="ID" index="0" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" onitemchanged="Combo00_onitemchanged" border="5px solid" borderRadius="5px">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">ID</Col>
+                <Col id="datacolumn">id</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">NAME</Col>
+                <Col id="datacolumn">name</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Grid id="Grid00" taborder="1" left="17" top="150" width="393" height="279" binddataset="ds_store_list" oncellclick="Grid00_oncellclick" autofittype="none" borderRadius="20px" border="5px solid">
+          <Formats>
+            <Format id="KINDS">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="100"/>
+                <Column size="130"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="ID"/>
+                <Cell col="1" text="NAME"/>
+                <Cell col="2" text="KINDS"/>
+                <Cell col="3" text="CREATE_DATE"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:ID"/>
+                <Cell col="1" text="bind:NAME"/>
+                <Cell col="2" text="bind:KINDS"/>
+                <Cell col="3" text="bind:CREATE_DATE"/>
+              </Band>
+            </Format>
+            <Format id="TEL">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="100"/>
+                <Column size="130"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="ID"/>
+                <Cell col="1" text="NAME"/>
+                <Cell col="2" text="TEL"/>
+                <Cell col="3" text="CREATE_DATE"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:ID"/>
+                <Cell col="1" text="bind:NAME"/>
+                <Cell col="2" text="bind:TEL"/>
+                <Cell col="3" text="bind:CREATE_DATE"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Edit id="keyword" taborder="2" left="120" top="70" width="193" height="30" border="5px solid" borderRadius="5px"/>
+        <Static id="Static00" taborder="3" text="물품관리" left="6" top="30" width="229" height="43" font="bold 24px/normal &quot;Verdana&quot;,&quot;Arial Black&quot;"/>
+        <Button id="Button00" taborder="4" text="조회" left="328" top="70" width="60" height="30" onclick="Button00_onclick" borderRadius="10px" background="#e3a2e5"/>
+        <Div id="Div00" taborder="5" left="71" top="487" width="619" height="129" text="Div00" borderRadius="20px" border="5px solid">
+          <Layouts>
+            <Layout>
+              <Div id="Div00" taborder="0" text="성함(업체명)" left="14" top="2" width="120" height="32" borderRadius="10px"/>
+              <Edit id="EditName" taborder="1" left="147" top="2" width="210" height="32" borderRadius="10px"/>
+              <Edit id="EditTel" taborder="2" left="147" top="43" width="210" height="32" borderRadius="10px"/>
+              <Combo id="ComboKinds" taborder="3" text="구분" left="494" top="34" width="100" height="43" value="" index="-1" onitemchanged="Div00_ComboKinds_onitemchanged" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" borderRadius="10px">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">과일</Col>
+                      <Col id="datacolumn">과일</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">채소</Col>
+                      <Col id="datacolumn">채소</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div00_00" taborder="6" text="물품 종류" left="447" top="496" width="110" height="110" borderRadius="10px"/>
+        <Div id="Div00_01" taborder="7" text="연락처" left="90" top="534" width="120" height="32" borderRadius="10px"/>
+        <Div id="Div00_01_00" taborder="8" text="생성일" left="90" top="572" width="120" height="32" borderRadius="10px"/>
+        <Grid id="Grid01" taborder="9" left="467" top="150" width="380" height="279" binddataset="product_list" autoenter="select" onheadclick="Grid01_onheadclick" borderRadius="20px" font="12pt/normal &quot;Stencil&quot;" border="5px solid">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="60"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="PRO_ID"/>
+                <Cell col="1" text="PRO_NAME"/>
+                <Cell col="2" text="ORIGIN"/>
+                <Cell col="3" text="WEIGHT"/>
+                <Cell col="4" text="COM_KEY"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:PRO_ID" edittype="none" displaytype="normal"/>
+                <Cell col="1" text="bind:PRO_NAME" edittype="normal" displaytype="editcontrol"/>
+                <Cell col="2" text="bind:ORIGIN" edittype="normal" displaytype="editcontrol"/>
+                <Cell col="3" text="bind:WEIGHT" edittype="normal" displaytype="editcontrol"/>
+                <Cell col="4" text="bind:COM_KEY" edittype="none" displaytype="normal"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button01" taborder="10" text="초기화" left="377" top="453" width="67" height="28" onclick="Button01_onclick" borderRadius="10px" background="#e3a2e5"/>
+        <Button id="Button_insert" taborder="11" text="등록" left="457" top="453" width="67" height="28" onclick="Button_insert_onclick" borderRadius="10px" background="#e3a2e5"/>
+        <Button id="Button03" taborder="12" text="수정" left="537" top="452" width="67" height="28" onclick="Button03_onclick" enable="false" borderRadius="10px" background="#e3a2e5"/>
+        <Button id="delete_btn" taborder="13" text="삭제" left="617" top="453" width="67" height="28" onclick="delete_btn_onclick" enable="false" borderRadius="10px" background="#e3a2e5"/>
+        <Button id="insertsub" taborder="14" text="추가" left="694" top="116" width="53" height="24" onclick="insertsub_onclick" enable="false" borderRadius="10px" background="#e3a2e5"/>
+        <Button id="deletesub" taborder="15" text="삭제" left="764" top="116" width="53" height="24" onclick="deletesub_onclick" enable="false" borderRadius="10px" background="#e3a2e5"/>
+        <Calendar id="Calendar00" taborder="16" left="223" top="572" width="210" height="32" borderRadius="10px"/>
+        <Radio id="Radio00" taborder="17" left="414" top="40" width="177" height="60" datacolumn="datacolumn" codecolumn="codecolumn" direction="vertical" onitemchanged="Radio00_onitemchanged" innerdataset="innerdataset" value="KINDS" text="KINDS" index="0" color="#ffffff">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">KINDS</Col>
+                <Col id="datacolumn">KINDS</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">TEL</Col>
+                <Col id="datacolumn">TEL</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Grid id="file_up_grid" taborder="18" left="879" top="148" width="368" height="181" binddataset="dsFileListup" onexpandup="file_up_grid_onexpandup" borderRadius="20px" border="5px solid">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="fileName"/>
+                <Cell col="1" text="fileSize"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:fileName"/>
+                <Cell col="1" text="bind:fileSize"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static01" taborder="19" text="파일 업/다운 로드" left="880" top="35" width="205" height="31" font="normal 700 15pt/normal &quot;Arial&quot;"/>
+        <Button id="btnAdd_file" taborder="20" text="파일추가" left="921" top="99" width="69" height="29" onclick="btnAdd_file_onclick" borderRadius="10px" background="#e3a2e5"/>
+        <Button id="btnDel_file" taborder="21" text="초기화" left="1001" top="99" width="49" height="29" onclick="btnDel_file_onclick" borderRadius="10px" background="#e3a2e5"/>
+        <Button id="btnSave_file" taborder="22" text="저장" left="1060" top="99" width="49" height="29" onclick="btnSave_file_onclick" borderRadius="10px" background="#e3a2e5"/>
+        <TextArea id="TextArea00" taborder="23" left="880" top="356" width="367" height="114" readonly="true" borderRadius="20px" border="5px solid"/>
+        <Button id="btn_down" taborder="24" text="다운로드" left="890" top="486" width="151" height="42" onclick="btn_down_onclick" borderRadius="10px" background="#e3a2e5"/>
+        <Grid id="Grid02" taborder="25" left="880" top="549" width="367" height="150" binddataset="dsFileListdown" borderRadius="20px" border="5px solid">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="30"/>
+                <Column size="140"/>
+                <Column size="196"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1" text="REALFILENAME"/>
+                <Cell col="2" text="DISPLAYFILENAME"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:CHK"/>
+                <Cell col="1" text="bind:REALFILENAME"/>
+                <Cell col="2" text="bind:DISPLAYFILENAME"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btnSearch" taborder="26" text="리스트 불러오기" left="1087" top="486" width="146" height="44" onclick="btnSearch_onclick" borderRadius="10px" background="#e3a2e5"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_store_list">
+        <ColumnInfo>
+          <Column id="ID" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="KINDS" type="STRING" size="256"/>
+          <Column id="TEL" type="STRING" size="256"/>
+          <Column id="CREATE_DATE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="product_list" oncolumnchanged="product_list_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="PRO_ID" type="STRING" size="256"/>
+          <Column id="PRO_NAME" type="STRING" size="256"/>
+          <Column id="ORIGIN" type="STRING" size="256"/>
+          <Column id="WEIGHT" type="STRING" size="256"/>
+          <Column id="COM_KEY" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_search">
+        <ColumnInfo>
+          <Column id="searchType" type="STRING" size="256"/>
+          <Column id="keyword" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_info">
+        <ColumnInfo>
+          <Column id="ID" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="KINDS" type="STRING" size="256"/>
+          <Column id="TEL" type="STRING" size="256"/>
+          <Column id="CREATE_DATE" type="STRING" size="256"/>
+          <Column id="PRO_ID" type="STRING" size="256"/>
+          <Column id="PRO_NAME" type="STRING" size="256"/>
+          <Column id="ORIGIN" type="STRING" size="256"/>
+          <Column id="WEIGHT" type="STRING" size="256"/>
+          <Column id="COM_KEY" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <FileDialog id="FileDialog00" onclose="FileDialog00_onclose"/>
+      <FileUpTransfer id="FileUpTransfer00" onerror="FileUpTransfer00_onerror" onprogress="FileUpTransfer00_onprogress" onsuccess="FileUpTransfer00_onsuccess"/>
+      <Dataset id="dsFileListup">
+        <ColumnInfo>
+          <Column id="fileName" type="STRING" size="256"/>
+          <Column id="fileSize" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <FileDownTransfer id="FileDownTransfer00" onerror="FileDownTransfer00_onerror" onsuccess="FileDownTransfer00_onsuccess"/>
+      <Dataset id="dsDownFileList">
+        <ColumnInfo>
+          <Column id="realFileName" type="STRING" size="256"/>
+          <Column id="displayFileName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsFileListdown">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="REALFILENAME" type="STRING" size="256"/>
+          <Column id="DISPLAYFILENAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+
+//조회버튼 클릭시
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+  this.fnSearch();
+};
+this.result = -1;
+// 등록 버튼 클릭시
+this.Button_insert_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fnInsert();
+};
+//수정 버튼 클릭시
+this.Button03_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fnUpdate();
+};
+
+//처리콜백 함수
+this.fnCallback = function(id, code, message)
+{
+
+  switch(id)
+  {
+    case "selectJw":
+	trace(message);
+      if(this.ds_store_list.getCount < 1){
+        this.alert("조회된 결과가 없습니다.");
+      }
+      break;
+		case 'insertJw' : 
+			if(this.result > -1) {
+				this.alert('등록되었습니다.');
+			}
+			break;
+			case 'deleteJw' :
+			if(this.result > -1) {
+			this.alert('삭제되었습니다.')
+			}
+			break;
+			case 'update' :
+			
+	}
+};
+
+//데이터 조회 트랜잭션
+this.fnSearch = function ()
+{
+  // 조회조건 셋팅
+  this.ds_search.setColumn(0, "searchType", this.searchType.value);
+  this.ds_search.setColumn(0, "keyword"  , this.keyword.text);
+
+  var id    = "selectJw";
+  var url   = "svc::selectjw.do";
+  var reqData      = "search_info=ds_search";
+  var respData     = "ds_store_list=jw_list";
+  var Arg      = "";
+  var callBackFnc = "fnCallback";
+  var isAsync     = true;
+
+  this.transaction(id ,     // transaction을 구분하기 위한 svc id값
+            url ,   // trabsaction을 요청할 주소
+            reqData ,     // 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+            respData ,     // 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+            Arg,     // 입력값으로 보낼 arguments, a=b
+            callBackFnc,   // transaction의 결과를 받을 Function 이름
+            isAsync);     // 비동기통신 여부 [생략가능]
+};
+
+//데이터 등록 트랜잭션
+this.fnInsert = function ()
+{
+	var did = (this.ds_store_list.rowposition);
+	var pid = (this.product_list.rowposition);
+	
+	
+	this.ds_info.setColumn(0, 'NAME', this.Div00.form.EditName.value);
+	this.ds_info.setColumn(0, 'KINDS', this.Div00.form.ComboKinds.value);
+	this.ds_info.setColumn(0, 'TEL', this.Div00.form.EditTel.value);
+	this.ds_info.setColumn(0, 'CREATE_DATE', this.Calendar00.value);
+	this.ds_info.setColumn(0, 'PRO_NAME', this.product_list.getColumn(pid,"PRO_NAME"));
+	this.ds_info.setColumn(0, 'ORIGIN', this.product_list.getColumn(pid,"ORIGIN"));
+	this.ds_info.setColumn(0, 'WEIGHT', this.product_list.getColumn(pid,"WEIGHT"));
+	this.ds_info.setColumn(0, 'COM_KEY', this.product_list.getColumn(pid,"COM_KEY"));
+	
+	var store_info = this.ds_info
+	
+	var id = "insertJw";  
+    var url = "svc::insertjw.do";
+    var reqData = "store_info=ds_info";
+    var respData = "";
+    var Args = "";
+    var callBackFnc = "callbackFnc";
+    var isAsync = true;
+	
+    this.transaction(id, url, reqData, respData, Args, callBackFnc, isAsync);
+};
+
+//그리드 로우 선택시 정보 출력
+ this.Grid00_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+ {
+ this.delete_btn.set_enable(true);
+this.Button03.set_enable(true);
+ this.deletesub.set_enable(true);
+this.insertsub.set_enable(true);
+this.Button01.set_enable(false);
+this.Button_insert.set_enable(false);
+
+ 
+	//div00 정보
+	var id = (this.ds_store_list.rowposition);
+ 
+	this.Div00.form.EditTel.set_value(this.ds_store_list.getColumn(id,"TEL"));
+	this.Div00.form.ComboKinds.set_value(this.ds_store_list.getColumn(id,"KINDS"));
+	this.Calendar00.set_value(this.ds_store_list.getColumn(id,"CREATE_DATE"));
+	this.Div00.form.EditName.set_value(this.ds_store_list.getColumn(id,"NAME"));
+	
+	//01 그리드 정보
+	var ID = this.ds_store_list.getColumn(id,"ID");
+	
+	var id    = "gridsel";
+	var url   = "svc::gridsel.do";
+	var reqData      = "";
+	var respData     = "product_list=jw_list";
+	var Args      = "param="+ID;
+	var callBackFnc = "fnCallback";
+	var isAsync     = true;
+
+  this.transaction(id, url, reqData, respData, Args, callBackFnc, isAsync);
+ 
+ 
+ 
+};
+
+//삭제 버튼 
+this.delete_btn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+    var did = (this.ds_store_list.rowposition);
+	var ID = this.ds_store_list.getColumn(did,"ID");
+	
+	var id    = "deleteJw";
+  var url   = "svc::deletejw.do";
+  var reqData      = "";
+  var respData     = "";
+  var Args      = "param="+ID;
+  var callBackFnc = "fnCallback";
+  var isAsync     = true;
+
+  this.transaction(id, url, reqData, respData, Args, callBackFnc, isAsync);
+  	
+};
+// 초기화 버튼
+this.Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.Div00.form.EditName.set_value(null);
+	this.Div00.form.EditTel.set_value(null);
+	this.Div00.form.ComboKinds.set_value(null);
+	this.Calendar00.set_value(null);
+};
+
+//데이터 수정 트랜잭션
+this.fnUpdate = function ()
+{
+
+	this.delete_btn.set_enable(false);
+	this.Button03.set_enable(false);
+	this.Button01.set_enable(true);
+	this.Button_insert.set_enable(true);
+
+
+	var did = (this.ds_store_list.rowposition);
+	var pid = (this.product_list.rowposition);
+	
+	
+	this.ds_info.setColumn(0, 'ID', this.ds_store_list.getColumn(did,"ID"));
+	this.ds_info.setColumn(0, 'NAME', this.Div00.form.EditName.value);
+	this.ds_info.setColumn(0, 'KINDS', this.Div00.form.ComboKinds.value);
+	this.ds_info.setColumn(0, 'TEL', this.Div00.form.EditTel.value);
+	this.ds_info.setColumn(0, 'CREATE_DATE', this.Calendar00.value);
+	this.ds_info.setColumn(0, 'PRO_ID', this.product_list.getColumn(pid, "PRO_ID"));
+	this.ds_info.setColumn(0, 'PRO_NAME', this.product_list.getColumn(pid,"PRO_NAME"));
+	this.ds_info.setColumn(0, 'ORIGIN', this.product_list.getColumn(pid,"ORIGIN"));
+	this.ds_info.setColumn(0, 'WEIGHT', this.product_list.getColumn(pid,"WEIGHT"));
+	this.ds_info.setColumn(0, 'COM_KEY', this.product_list.getColumn(pid,"COM_KEY"));
+	
+	var store_info = this.ds_info
+	
+	
+	var id = "insertJw";  
+    var url = "svc::updatejw.do";
+    var reqData = "store_info=ds_info";
+    var respData = "";
+    var Args = "";
+    var callBackFnc = "";
+    var isAsync = true;
+	
+    this.transaction(id, url, reqData, respData, Args, callBackFnc, isAsync);
+
+};
+
+
+this.insertsub_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+  var nRow = this.product_list.addRow();
+  this.product_list.set_rowposition(nRow);
+  this.Grid01.setCellPos(1);
+  this.Grid01.showEditor(true);
+	
+};
+
+this.deletesub_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+		var nRow = this.product_list.rowposition;
+		var ID = this.product_list.getColumn(nRow,"PRO_ID");
+	
+	var id    = "deleteJw";
+  var url   = "svc::deletejw_pro.do";
+  var reqData      = "";
+  var respData     = "";
+  var Args      = "param="+ID;
+  var callBackFnc = "fnCallback";
+  var isAsync     = true;
+
+  this.transaction(id, url, reqData, respData, Args, callBackFnc, isAsync);
+};
+
+
+this.Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.Grid00.setFormat(this.Radio00.value);
+
+};
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////file up///////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+this.sFileUrl = "http://localhost:8080/nexacro/uploadFiles.do"; //파일전송 URL
+this.dFileUrl = "http://localhost:8080/nexacro/downloadFiles.do"; //파일다운로드 URL
+this.nMaxFileSize = 2000000;  //각 파일 최대사이즈 (2 Mbyte)
+
+//폼 로딩 후 이벤트
+this.FileDownTransfer_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+  //파일업로드시 파일저장 폴더경로 PostData 셋팅
+  this.FileUpTransfer00.setPostData("filepath","sample");
+  //파일업로드 전송 URL 셋팅
+  this.FileUpTransfer00.set_url(this.sFileUrl);
+   //파일다운로드시 파일다운 폴더경로 PostData 셋팅
+  this.FileDownTransfer00.setPostData(this.FileUpTransfer00.getPostData());
+  //파일다운로드 전송 URL 셋팅
+  this.FileDownTransfer00.set_url(this.dFileUrl);
+};
+
+
+//파일추가 버튼클릭
+this.btnAdd_file_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+  this.FileDialog00.open( "파일선택", FileDialog.LOAD );
+};
+
+//파일선택창(FileDialog) 닫힐시
+//Web 은 e.reason 이 1(FileDialog.LOAD) 이나 3(FileDialog.MULTILOAD) 일경우에만 발생
+this.FileDialog00_onclose = function(obj:nexacro.FileDialog,e:nexacro.FileDialogEventInfo)
+{
+  if(e.reason == 0 ) {  //파일선택 취소
+    return;
+  }else{
+    if(e.reason == 1) {    //FileDialog.LOAD 옵션의 파일선택
+      var vFile = e.virtualfiles[0];      
+      var isExist = this.FileUpTransfer00.existFile(vFile);
+      
+      //파일중복체크
+      if(isExist){
+        alert("이미추가된 파일이 있습니다.");
+        return;
+      }
+      
+      //VirtualFile 이벤트 생성
+      vFile.addEventHandler("onsuccess", this.Upload_VirtualFile_onsuccess, this);
+      vFile.addEventHandler("onerror", this.Upload_VirtualFile_onerror, this);
+      
+      //File 사이즈 체크를 위해
+      vFile.open(null,VirtualFile.openRead);
+    }
+  }
+};
+
+//업로드용 Virtual 파일 onsuccess 이벤트
+this.Upload_VirtualFile_onsuccess = function(obj:nexacro.VirtualFile, e:nexacro.VirtualFileEventInfo)
+{
+  if (e.reason == 1)  //open() callback
+  {
+    //파일사이즈 체크
+    obj.getFileSize();
+  }
+  if (e.reason == 9) //getFileSize() callback
+  {
+    obj.close();
+
+    var sFileName = obj.filename;
+    var nFileSize = e.filesize;
+    
+    if(nFileSize > this.nMaxFileSize){
+      alert("첨부파일 최대용량은 2 MByte 입니다.");
+      return;
+    }
+
+    //FileUpTransfer 해당 파일추가
+    var nIdx = this.FileUpTransfer00.addFile(sFileName,obj);
+
+    //화면 파일정보 셋팅
+    var nRow = this.dsFileListup.insertRow(nIdx);
+     this.dsFileListup.setColumn(nRow, "fileName", sFileName);
+     this.dsFileListup.setColumn(nRow, "fileSize", nFileSize);
+  }
+}
+
+//업로드용 Virtual 파일 oneroor 이벤트
+this.Upload_VirtualFile_onerror = function(obj:nexacro.VirtualFile, e:nexacro.VirtualFileErrorEventInfo)
+{
+  var msg = ">>>>>>>>> VirtualFile event ERROR >>>>>>>>\n";
+  msg += "errortype : "+e.errortype+"\n";
+  msg += "errormsg : "+e.errormsg+"\n";
+  msg += "statuscode : "+e.statuscode;
+
+  alert(msg);
+}
+
+//그리드 삭제이미지 클릭시
+this.file_up_grid_onexpandup = function(obj:nexacro.Grid,e:nexacro.GridMouseEventInfo)
+{
+  var nRow = e.row;
+  
+  //FileUpTransfer 해당 파일삭제
+  var nIdx = this.FileUpTransfer00.removeFileByIndex(nRow);
+  
+  //정상삭제 시 해당 데이터 삭제
+  if(nIdx > -1) {  
+    obj.getBindDataset().deleteRow(nRow);
+  }
+};
+
+//초기화 버튼 클릭시
+this.btnDel_file_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{  
+  //파일정보 초기화
+  this.fn_FileClear();
+};
+
+//파일전송 성공시
+this.FileUpTransfer00_onsuccess = function(obj:nexacro.FileUpTransfer,e:nexacro.FileUpTransferEventInfo)
+{
+  var msg = ">>>>>>>>>>>>>>>>>>>>>>>>>>  SUCCESS >>>>>>>>>>>>>>>>>>>>>>>>>>\n";
+  msg += "code :"+e.code+"\n";
+  msg += "message :"+e.message+"\n";
+  msg += "url :"+e.url+"\n";
+  msg += "datasets[0].saveXML() :"+e.datasets[0].saveXML()+"\n";
+  
+  this.TextArea00.set_value(msg);
+  
+  //파일정보 초기화
+  this.fn_FileClear();
+};
+
+//파일전송 중
+this.FileUpTransfer00_onprogress = function(obj:nexacro.FileUpTransfer,e:nexacro.FileUpTransferProgressEventInfo)
+{
+  trace(e.loaded +" / "+e.total +" Byte Uploading...");
+};
+
+//파일전송 실패시
+this.FileUpTransfer00_onerror = function(obj:nexacro.FileUpTransfer,e:nexacro.FileUpTransferErrorEventInfo)
+{
+  var msg = ">>>>>>>>>>>>>>>>>>>>>>>>>>  ERROR >>>>>>>>>>>>>>>>>>>>>>>>>>\n";
+  msg += "statuscode: "+e.statuscode+"\n";
+  msg += "requesturi: "+e.requesturi+"\n";
+  msg += "locationuri: "+e.locationuri+"\n" ;
+  msg += "errormsg: "+e.errormsg+"\n";
+
+  this.TextArea00.set_value(msg);
+};
+
+//파일전송 버튼클릭
+this.btnSave_file_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+  if(this.FileUpTransfer00.filelist.length == 0) {
+    alert("첨부한 파일이 없습니다.");
+    return;
+  }
+  
+  //파일전송
+  this.FileUpTransfer00.upload("http://localhost:8080/nexacro/uploadFiles.do");
+};
+
+//파일정보 초기화
+this.fn_FileClear = function (){
+  //FileUpTransfer 파일 모두삭제
+  this.FileUpTransfer00.clearFileList();
+  //파일정보 모두삭제
+  this.dsFileListup.clearData();  
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////file down////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// this.sFileUrl = "http://localhost:8080/nexacro/downloadFile.do"; //파일다운로드 URL
+// 
+// //폼 로딩 후 이벤트
+// this.FileUp_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+// {
+//   //파일다운로드시 파일다운 폴더경로 PostData 셋팅
+//   this.FileDownTransfer00.setPostData("filepath","sample");
+//   //파일업로드 전송 URL 셋팅
+//   this.FileDownTransfer00.set_url(this.sFileUrl);
+// };
+
+//파일다운로드 버튼클릭
+this.btn_down_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+  var objDs = this.dsFileListdown;
+  var nCnt = objDs.getRowCount();
+  
+  this.dsDownFileList.clearData();
+  
+  for(var i=0;i<nCnt;i++){
+    var nChk = objDs.getColumn(i,"CHK");
+    
+    if(nChk==1) {
+      var nRow = this.dsDownFileList.addRow();
+      
+      this.dsDownFileList.setColumn(nRow, "realFileName", objDs.getColumn(i,"REALFILENAME"));
+      this.dsDownFileList.setColumn(nRow, "displayFileName", objDs.getColumn(i,"DISPLAYFILENAME"));      
+    }
+  }
+  
+  if(this.dsDownFileList.getRowCount() == 0) {
+    alert("다운로드 할 파일을 선택하세요.");
+    return;
+  }
+
+  /*
+    서버로 전송할 파일정보를 셋팅
+    
+    [추천] String 에 여러파일명 정보 넘겨 서버에서 잘라서 처리
+    setPostData("file_realFilenames","1.xlsx,111.xlsx,Hydrangeas.jpg")
+    setPostData("file_displayFilenames","파일1.xlsx,파일111.xlsx,파일Hydrangeas.jpg")
+        
+    [비추천] 데이터셋을 넘기지 못해 XML 스트링으로 넘겨 서버에서 Dataset으로 변경
+    몇가지 문자만 변환해서 해보니 동작하여 작성해 봅니다 (공식방법 아닙니다)
+  */
+  this.FileDownTransfer00.setPostData("fileInfo",this.dsDownFileList.saveXML());
+  
+  //NRE 를 위한 다운로드 Default 파일명
+  if(this.dsDownFileList.getRowCount() > 1) {
+    //파일여러개 선택시 zip 파일로 압축하여 다운로드
+    this.FileDownTransfer00.set_downloadfilename("첨부파일.zip");
+  }else{
+    //파일이 1개일 경우 해당 파일명으로 다운로드
+    this.FileDownTransfer00.set_downloadfilename(this.dsDownFileList.getColumn(0, "DISPLAYFILENAME"));
+  }
+  
+  //파일다운로드 실행
+  this.FileDownTransfer00.download();
+};
+
+//파일다운로드 성공시 (NRE 에서만 지원)
+this.FileDownTransfer00_onsuccess = function(obj:nexacro.FileDownTransfer,e:nexacro.FileDownTransferEventInfo)
+{
+  var sMsg = e.targetfullpath +"\n"+  e.url;
+  
+  alert(sMsg);
+};
+
+//파일다운로드 실패시 (NRE 에서만 지원)
+this.FileDownTransfer00_onerror = function(obj:nexacro.FileDownTransfer,e:nexacro.FileDownTransferErrorEventInfo)
+{
+  var sMsg = ">>>>>>>>>>>>>>>>>>>>>>>>>>  ERROR >>>>>>>>>>>>>>>>>>>>>>>>>>\n";
+  sMsg += "statuscode: "+e.statuscode+"\n";
+  sMsg += "requesturi: "+e.requesturi+"\n";
+  sMsg += "locationuri: "+e.locationuri+"\n" ;
+  sMsg += "errormsg: "+e.errormsg+"\n";
+  
+  alert(sMsg);
+};
+
+
+//리스트 불러오기
+this.btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+ var id    = "selectfilelist";
+  var url   = "svc::selectfilelist.do";
+  var reqData      = "";
+  var respData     = "dsFileListdown=jw_list";
+  var Arg      = "";
+  var callBackFnc = "";
+  var isAsync     = true;
+
+  this.transaction(id ,     // transaction을 구분하기 위한 svc id값
+            url ,   // trabsaction을 요청할 주소
+            reqData ,     // 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+            respData ,     // 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+            Arg,     // 입력값으로 보낼 arguments, a=b
+            callBackFnc,   // transaction의 결과를 받을 Function 이름
+            isAsync);     // 비동기통신 여부 [생략가능]
+};
+	
+
+
+]]></Script>
+    <Bind>
+      <BindItem id="item0" compid="searchType" propid="value" datasetid="ds_search" columnid="searchType"/>
+      <BindItem id="item1" compid="keyword" propid="value" datasetid="ds_search" columnid="keyword"/>
+    </Bind>
+  </Form>
+</FDL>
