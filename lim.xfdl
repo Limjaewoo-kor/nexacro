@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="lim" width="1280" height="720" titletext="New Form" onload="FileDownTransfer_onload" background="#a0fdfd">
+  <Form id="lim" width="1280" height="720" titletext="New Form" onload="FileDownTransfer_onload" background="#606060">
     <Layouts>
       <Layout height="720" mobileorientation="landscape" width="1280">
-        <Combo id="searchType" taborder="0" text="id" left="40" top="70" width="73" height="30" value="ID" index="0" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" onitemchanged="Combo00_onitemchanged" border="5px solid" borderRadius="5px">
+        <Combo id="searchType" taborder="0" text="id" left="40" top="70" width="73" height="30" value="ID" index="0" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" onitemchanged="Combo00_onitemchanged" border="5px solid darkgray" borderRadius="5px">
           <Dataset id="innerdataset">
             <ColumnInfo>
               <Column id="codecolumn" size="256"/>
@@ -21,7 +21,7 @@
             </Rows>
           </Dataset>
         </Combo>
-        <Grid id="Grid00" taborder="1" left="17" top="150" width="393" height="279" binddataset="ds_store_list" oncellclick="Grid00_oncellclick" autofittype="none" borderRadius="20px" border="5px solid">
+        <Grid id="Grid00" taborder="1" left="17" top="150" width="393" height="279" binddataset="ds_store_list" oncellclick="Grid00_oncellclick" autofittype="none" borderRadius="20px" border="5px solid darkgray">
           <Formats>
             <Format id="KINDS">
               <Columns>
@@ -73,10 +73,10 @@
             </Format>
           </Formats>
         </Grid>
-        <Edit id="keyword" taborder="2" left="120" top="70" width="193" height="30" border="5px solid" borderRadius="5px"/>
+        <Edit id="keyword" taborder="2" left="120" top="70" width="193" height="30" border="5px solid darkgray" borderRadius="5px"/>
         <Static id="Static00" taborder="3" text="물품관리" left="6" top="30" width="229" height="43" font="bold 24px/normal &quot;Verdana&quot;,&quot;Arial Black&quot;"/>
-        <Button id="Button00" taborder="4" text="조회" left="328" top="70" width="60" height="30" onclick="Button00_onclick" borderRadius="10px" background="#e3a2e5"/>
-        <Div id="Div00" taborder="5" left="71" top="487" width="619" height="129" text="Div00" borderRadius="20px" border="5px solid">
+        <Button id="btn_sel" taborder="4" text="조회" left="328" top="70" width="60" height="30" onclick="btn_sel_onclick" borderRadius="10px" background="#38ffc6"/>
+        <Div id="Div00" taborder="5" left="71" top="487" width="619" height="129" text="Div00" borderRadius="20px" border="5px solid darkgray">
           <Layouts>
             <Layout>
               <Div id="Div00" taborder="0" text="성함(업체명)" left="14" top="2" width="120" height="32" borderRadius="10px"/>
@@ -106,7 +106,7 @@
         <Div id="Div00_00" taborder="6" text="물품 종류" left="447" top="496" width="110" height="110" borderRadius="10px"/>
         <Div id="Div00_01" taborder="7" text="연락처" left="90" top="534" width="120" height="32" borderRadius="10px"/>
         <Div id="Div00_01_00" taborder="8" text="생성일" left="90" top="572" width="120" height="32" borderRadius="10px"/>
-        <Grid id="Grid01" taborder="9" left="467" top="150" width="380" height="279" binddataset="product_list" autoenter="select" onheadclick="Grid01_onheadclick" borderRadius="20px" font="12pt/normal &quot;Stencil&quot;" border="5px solid">
+        <Grid id="Grid01" taborder="9" left="467" top="150" width="380" height="279" binddataset="product_list" autoenter="select" onheadclick="Grid01_onheadclick" borderRadius="20px" font="12pt/normal &quot;Stencil&quot;" border="5px solid darkgray">
           <Formats>
             <Format id="default">
               <Columns>
@@ -137,12 +137,12 @@
             </Format>
           </Formats>
         </Grid>
-        <Button id="Button01" taborder="10" text="초기화" left="377" top="453" width="67" height="28" onclick="Button01_onclick" borderRadius="10px" background="#e3a2e5"/>
-        <Button id="Button_insert" taborder="11" text="등록" left="457" top="453" width="67" height="28" onclick="Button_insert_onclick" borderRadius="10px" background="#e3a2e5"/>
-        <Button id="Button03" taborder="12" text="수정" left="537" top="452" width="67" height="28" onclick="Button03_onclick" enable="false" borderRadius="10px" background="#e3a2e5"/>
-        <Button id="delete_btn" taborder="13" text="삭제" left="617" top="453" width="67" height="28" onclick="delete_btn_onclick" enable="false" borderRadius="10px" background="#e3a2e5"/>
-        <Button id="insertsub" taborder="14" text="추가" left="694" top="116" width="53" height="24" onclick="insertsub_onclick" enable="false" borderRadius="10px" background="#e3a2e5"/>
-        <Button id="deletesub" taborder="15" text="삭제" left="764" top="116" width="53" height="24" onclick="deletesub_onclick" enable="false" borderRadius="10px" background="#e3a2e5"/>
+        <Button id="btn_reset" taborder="10" text="초기화" left="377" top="453" width="67" height="28" onclick="btn_reset_onclick" borderRadius="10px" background="#38ffc6"/>
+        <Button id="Button_insert" taborder="11" text="등록" left="457" top="453" width="67" height="28" onclick="Button_insert_onclick" borderRadius="10px" background="#38ffc6"/>
+        <Button id="btn_up" taborder="12" text="수정" left="537" top="452" width="67" height="28" onclick="btn_up_onclick" enable="false" borderRadius="10px" background="#38ffc6"/>
+        <Button id="delete_btn" taborder="13" text="삭제" left="617" top="453" width="67" height="28" onclick="delete_btn_onclick" enable="false" borderRadius="10px" background="#38ffc6"/>
+        <Button id="insertsub" taborder="14" text="추가" left="694" top="116" width="53" height="24" onclick="insertsub_onclick" enable="false" borderRadius="10px" background="#38ffc6"/>
+        <Button id="deletesub" taborder="15" text="삭제" left="764" top="116" width="53" height="24" onclick="deletesub_onclick" enable="false" borderRadius="10px" background="#38ffc6"/>
         <Calendar id="Calendar00" taborder="16" left="223" top="572" width="210" height="32" borderRadius="10px"/>
         <Radio id="Radio00" taborder="17" left="414" top="40" width="177" height="60" datacolumn="datacolumn" codecolumn="codecolumn" direction="vertical" onitemchanged="Radio00_onitemchanged" innerdataset="innerdataset" value="KINDS" text="KINDS" index="0" color="#ffffff">
           <Dataset id="innerdataset">
@@ -162,7 +162,7 @@
             </Rows>
           </Dataset>
         </Radio>
-        <Grid id="file_up_grid" taborder="18" left="879" top="148" width="368" height="181" binddataset="dsFileListup" onexpandup="file_up_grid_onexpandup" borderRadius="20px" border="5px solid">
+        <Grid id="file_up_grid" taborder="18" left="879" top="148" width="368" height="181" binddataset="dsFileListup" onexpandup="file_up_grid_onexpandup" borderRadius="20px" border="5px solid darkgray">
           <Formats>
             <Format id="default">
               <Columns>
@@ -185,12 +185,12 @@
           </Formats>
         </Grid>
         <Static id="Static01" taborder="19" text="파일 업/다운 로드" left="880" top="35" width="205" height="31" font="normal 700 15pt/normal &quot;Arial&quot;"/>
-        <Button id="btnAdd_file" taborder="20" text="파일추가" left="921" top="99" width="69" height="29" onclick="btnAdd_file_onclick" borderRadius="10px" background="#e3a2e5"/>
-        <Button id="btnDel_file" taborder="21" text="초기화" left="1001" top="99" width="49" height="29" onclick="btnDel_file_onclick" borderRadius="10px" background="#e3a2e5"/>
-        <Button id="btnSave_file" taborder="22" text="저장" left="1060" top="99" width="49" height="29" onclick="btnSave_file_onclick" borderRadius="10px" background="#e3a2e5"/>
-        <TextArea id="TextArea00" taborder="23" left="880" top="356" width="367" height="114" readonly="true" borderRadius="20px" border="5px solid"/>
-        <Button id="btn_down" taborder="24" text="다운로드" left="890" top="486" width="151" height="42" onclick="btn_down_onclick" borderRadius="10px" background="#e3a2e5"/>
-        <Grid id="Grid02" taborder="25" left="880" top="549" width="367" height="150" binddataset="dsFileListdown" borderRadius="20px" border="5px solid">
+        <Button id="btnAdd_file" taborder="20" text="파일추가" left="921" top="99" width="69" height="29" onclick="btnAdd_file_onclick" borderRadius="10px" background="#707cff"/>
+        <Button id="btnDel_file" taborder="21" text="초기화" left="1001" top="99" width="49" height="29" onclick="btnDel_file_onclick" borderRadius="10px" background="#707cff"/>
+        <Button id="btnSave_file" taborder="22" text="저장" left="1060" top="99" width="49" height="29" onclick="btnSave_file_onclick" borderRadius="10px" background="#707cff"/>
+        <TextArea id="TextArea00" taborder="23" left="880" top="356" width="367" height="114" readonly="true" borderRadius="20px" border="5px solid darkgray"/>
+        <Button id="btn_down" taborder="24" text="다운로드" left="1099" top="496" width="151" height="42" onclick="btn_down_onclick" borderRadius="10px" background="#707cff"/>
+        <Grid id="Grid02" taborder="25" left="880" top="549" width="367" height="150" binddataset="dsFileListdown" borderRadius="20px" border="5px solid darkgray" oncellclick="Grid02_oncellclick">
           <Formats>
             <Format id="default">
               <Columns>
@@ -215,7 +215,8 @@
             </Format>
           </Formats>
         </Grid>
-        <Button id="btnSearch" taborder="26" text="리스트 불러오기" left="1087" top="486" width="146" height="44" onclick="btnSearch_onclick" borderRadius="10px" background="#e3a2e5"/>
+        <Button id="btnSearch" taborder="26" text="리스트 불러오기" left="880" top="494" width="146" height="44" onclick="btnSearch_onclick" borderRadius="10px" background="#707cff"/>
+        <ImageViewer id="ImgView" taborder="27" left="706" top="551" width="153" height="146" border="5px solid darkgray" stretch="fixaspectratio"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -292,24 +293,73 @@
         </ColumnInfo>
       </Dataset>
     </Objects>
-    <Script type="xscript5.1"><![CDATA[
+    <Script type="xscript5.1"><![CDATA[this.result = -1;
 
-//조회버튼 클릭시
-this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// Button ///////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// 0번 그리드 조회버튼 
+this.btn_sel_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
   this.fnSearch();
 };
-this.result = -1;
-// 등록 버튼 클릭시
+
+// 0번 그리드 등록 버튼 
 this.Button_insert_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
 	this.fnInsert();
 };
-//수정 버튼 클릭시
-this.Button03_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+
+// 0번 그리드 수정 버튼 
+this.btn_up_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
 	this.fnUpdate();
 };
+
+// 0번 그리드 삭제 버튼 
+this.delete_btn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fndelete();
+}
+
+// 0번 그리드 초기화 버튼
+this.btn_reset_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fn_null();
+}
+
+// 1번 그리드 추가버튼.
+this.insertsub_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fninsert_sub();
+};
+
+// 1번 그리드 삭제버튼
+this.deletesub_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fndelete_sub();
+};
+
+//파일 리스트 불러오기 버튼
+this.btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.file_Serch();
+}
+
+// 라디오 버튼
+this.Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	this.Grid00.setFormat(this.Radio00.value);
+};
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// Callback /////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 //처리콜백 함수
 this.fnCallback = function(id, code, message)
@@ -318,7 +368,6 @@ this.fnCallback = function(id, code, message)
   switch(id)
   {
     case "selectJw":
-	trace(message);
       if(this.ds_store_list.getCount < 1){
         this.alert("조회된 결과가 없습니다.");
       }
@@ -333,10 +382,16 @@ this.fnCallback = function(id, code, message)
 			this.alert('삭제되었습니다.')
 			}
 			break;
-			case 'update' :
-			
+
 	}
 };
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// Transaction //////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 //데이터 조회 트랜잭션
 this.fnSearch = function ()
@@ -394,14 +449,13 @@ this.fnInsert = function ()
 //그리드 로우 선택시 정보 출력
  this.Grid00_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
  {
- this.delete_btn.set_enable(true);
-this.Button03.set_enable(true);
- this.deletesub.set_enable(true);
-this.insertsub.set_enable(true);
-this.Button01.set_enable(false);
-this.Button_insert.set_enable(false);
+	this.delete_btn.set_enable(true);
+	this.btn_up.set_enable(true);
+	this.deletesub.set_enable(true);
+	this.insertsub.set_enable(true);
+	this.btn_reset.set_enable(false);
+	this.Button_insert.set_enable(false);
 
- 
 	//div00 정보
 	var id = (this.ds_store_list.rowposition);
  
@@ -423,12 +477,11 @@ this.Button_insert.set_enable(false);
 
   this.transaction(id, url, reqData, respData, Args, callBackFnc, isAsync);
  
- 
- 
 };
 
-//삭제 버튼 
-this.delete_btn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+//데이터 삭제 트랜잭션
+
+this.fndelete = function()
 {
     var did = (this.ds_store_list.rowposition);
 	var ID = this.ds_store_list.getColumn(did,"ID");
@@ -444,22 +497,16 @@ this.delete_btn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
   this.transaction(id, url, reqData, respData, Args, callBackFnc, isAsync);
   	
 };
-// 초기화 버튼
-this.Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
-{
-	this.Div00.form.EditName.set_value(null);
-	this.Div00.form.EditTel.set_value(null);
-	this.Div00.form.ComboKinds.set_value(null);
-	this.Calendar00.set_value(null);
-};
+
 
 //데이터 수정 트랜잭션
+
 this.fnUpdate = function ()
 {
 
 	this.delete_btn.set_enable(false);
-	this.Button03.set_enable(false);
-	this.Button01.set_enable(true);
+	this.btn_up.set_enable(false);
+	this.btn_reset.set_enable(true);
 	this.Button_insert.set_enable(true);
 
 
@@ -493,17 +540,20 @@ this.fnUpdate = function ()
 
 };
 
+// 1번 그리드 추가 트랜잭션
 
-this.insertsub_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+this.fninsert_sub = function()
 {
-  var nRow = this.product_list.addRow();
-  this.product_list.set_rowposition(nRow);
-  this.Grid01.setCellPos(1);
-  this.Grid01.showEditor(true);
-	
-};
+	var nRow = this.product_list.addRow();
+	this.product_list.set_rowposition(nRow);
+	this.Grid01.setCellPos(1);
+	this.Grid01.showEditor(true);
+}
 
-this.deletesub_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+
+// 1번 그리드 삭제 트랜잭션
+
+this.fndelete_sub = function()
 {
 		var nRow = this.product_list.rowposition;
 		var ID = this.product_list.getColumn(nRow,"PRO_ID");
@@ -519,16 +569,43 @@ this.deletesub_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
   this.transaction(id, url, reqData, respData, Args, callBackFnc, isAsync);
 };
 
+//파일 불러오기 트랜잭션
 
-this.Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+this.file_Serch = function()
 {
-	this.Grid00.setFormat(this.Radio00.value);
+ var id    = "selectfilelist";
+  var url   = "svc::selectfilelist.do";
+  var reqData      = "";
+  var respData     = "dsFileListdown=jw_list";
+  var Arg      = "";
+  var callBackFnc = "";
+  var isAsync     = true;
 
+  this.transaction(id ,     // transaction을 구분하기 위한 svc id값
+            url ,   // trabsaction을 요청할 주소
+            reqData ,     // 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+            respData ,     // 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+            Arg,     // 입력값으로 보낼 arguments, a=b
+            callBackFnc,   // transaction의 결과를 받을 Function 이름
+            isAsync);     // 비동기통신 여부 [생략가능]
 };
 
+// 초기화 
+
+this.fn_null = function()
+{
+	this.Div00.form.EditName.set_value(null);
+	this.Div00.form.EditTel.set_value(null);
+	this.Div00.form.ComboKinds.set_value(null);
+	this.Calendar00.set_value(null);
+};
+	
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////file up///////////////////////////////////////////////
+//////////////////////////////////////File Upload ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -539,13 +616,13 @@ this.nMaxFileSize = 2000000;  //각 파일 최대사이즈 (2 Mbyte)
 //폼 로딩 후 이벤트
 this.FileDownTransfer_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 {
-  //파일업로드시 파일저장 폴더경로 PostData 셋팅
+  //파일 업로드시 파일저장 폴더경로 PostData 셋팅
   this.FileUpTransfer00.setPostData("filepath","sample");
-  //파일업로드 전송 URL 셋팅
+  //파일 업로드 전송 URL 셋팅
   this.FileUpTransfer00.set_url(this.sFileUrl);
-   //파일다운로드시 파일다운 폴더경로 PostData 셋팅
+   //파일 다운로드시 파일다운 폴더경로 PostData 셋팅
   this.FileDownTransfer00.setPostData(this.FileUpTransfer00.getPostData());
-  //파일다운로드 전송 URL 셋팅
+  //파일 다운로드 전송 URL 셋팅
   this.FileDownTransfer00.set_url(this.dFileUrl);
 };
 
@@ -701,20 +778,10 @@ this.fn_FileClear = function (){
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////file down////////////////////////////////////////
+/////////////////////////////////////////File Download////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-// this.sFileUrl = "http://localhost:8080/nexacro/downloadFile.do"; //파일다운로드 URL
-// 
-// //폼 로딩 후 이벤트
-// this.FileUp_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
-// {
-//   //파일다운로드시 파일다운 폴더경로 PostData 셋팅
-//   this.FileDownTransfer00.setPostData("filepath","sample");
-//   //파일업로드 전송 URL 셋팅
-//   this.FileDownTransfer00.set_url(this.sFileUrl);
-// };
 
 //파일다운로드 버튼클릭
 this.btn_down_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
@@ -783,30 +850,22 @@ this.FileDownTransfer00_onerror = function(obj:nexacro.FileDownTransfer,e:nexacr
   sMsg += "errormsg: "+e.errormsg+"\n";
   
   alert(sMsg);
+  
 };
 
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////// Thumbnail ///////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
 
-//리스트 불러오기
-this.btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+//이미지 파일 미리보기
+this.Grid02_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
 {
- var id    = "selectfilelist";
-  var url   = "svc::selectfilelist.do";
-  var reqData      = "";
-  var respData     = "dsFileListdown=jw_list";
-  var Arg      = "";
-  var callBackFnc = "";
-  var isAsync     = true;
-
-  this.transaction(id ,     // transaction을 구분하기 위한 svc id값
-            url ,   // trabsaction을 요청할 주소
-            reqData ,     // 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
-            respData ,     // 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
-            Arg,     // 입력값으로 보낼 arguments, a=b
-            callBackFnc,   // transaction의 결과를 받을 Function 이름
-            isAsync);     // 비동기통신 여부 [생략가능]
-};
-	
-
+	var id = (this.dsFileListdown.rowposition);
+	var filename= (this.dsFileListdown.getColumn(id,"REALFILENAME"));
+	this.ImgView.set_image("URL('http://localhost:8080/images/imgjw/"+filename+"')");
+}
 
 ]]></Script>
     <Bind>
