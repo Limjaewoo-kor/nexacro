@@ -208,8 +208,7 @@ public class JWFileController {
 
     //filepath 파라미터 (폴더명)
     String fileDir = request.getParameter("filepath");
-//    String filePath = "C:\\Users\\invako\\Desktop\\새 폴더\\workspace\\mfds\\src\\main\\webapp\\images\\imgjw";
-    
+
     //다운로드 Client 파일명
     String displayFileName = "";
     
