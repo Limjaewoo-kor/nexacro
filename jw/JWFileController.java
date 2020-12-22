@@ -122,7 +122,8 @@ public class JWFileController {
     private void uploadMultipartFiles(MultipartHttpServletRequest multipartRequest, DataSet resultDs) throws IOException {
         
         Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
-        String filePath = getFilePath();
+        String filePath = "C:\\Users\\invako\\Desktop\\새 폴더\\workspace\\mfds\\src\\main\\webapp\\images\\imgjw";
+//        String filePath = getFilePath();
         
         Set<String> keySet = fileMap.keySet();
         for(String name: keySet) {
@@ -207,6 +208,7 @@ public class JWFileController {
 
     //filepath 파라미터 (폴더명)
     String fileDir = request.getParameter("filepath");
+//    String filePath = "C:\\Users\\invako\\Desktop\\새 폴더\\workspace\\mfds\\src\\main\\webapp\\images\\imgjw";
     
     //다운로드 Client 파일명
     String displayFileName = "";
@@ -231,7 +233,9 @@ public class JWFileController {
       fileDir = "";          
     }
 
-    String filePath = getFilePath()+ SP +fileDir;
+//    String filePath = getFilePath()+ SP +fileDir;
+    String filePath = "C:\\Users\\invako\\Desktop\\새 폴더\\workspace\\mfds\\src\\main\\webapp\\images\\imgjw\\";
+    
     String fileName = "";
     File file = null;
     
