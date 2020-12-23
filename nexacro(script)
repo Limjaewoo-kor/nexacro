@@ -1,4 +1,42 @@
-//nexacro (연습용) -- 메인페이지 
+//nexacro (연습용) -- 메인페이지
+
+// PopUp 관련
+this.lim_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+    this.PopupDiv00.trackPopup(530, 300, 300, 300);
+	
+this.ImageViewer00.set_image("URL('http://localhost:8080/images/imgjw/하늘.jpg')");
+	
+};
+
+this.PopupDiv00_onclick = function(obj:nexacro.PopupDiv,e:nexacro.ClickEventInfo)
+{
+	this.PopupDiv00.closePopup();
+};
+
+
+// form 페이지 이동
+
+//물품관리
+this.object_btn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.go("lim::llim.xfdl");
+	                          
+};
+
+//파일관리
+this.file_btn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.go("lim::ljw.xfdl");
+	                          
+};
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// 물품관리 페이지 /////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 this.result = -1;
 
@@ -279,8 +317,7 @@ this.fn_null = function()
 };
 	
 
-
-
+//alert 
 this.keyword_onlbuttondown = function(obj:nexacro.Edit,e:nexacro.SetFocusEventInfo)
 {
 	this.alert('신규 등록 하려면 아래에 있는 표를 작성하세요. ');
@@ -292,34 +329,18 @@ this.Div00_EditName_onlbuttondown = function(obj:nexacro.Edit,e:nexacro.MouseEve
 	this.alert('기존 정보를 수정하려면 조회 버튼을 클릭하세요. ');
 };
 
+// form 페이지 이동
 this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
 	this.go("lim::ljw.xfdl");
 	                          
 };
 
-this.Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
-{
-	this.go("lim::popup.xfdl");
-	                          
-};
-
-this.lim_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
-{
-    this.PopupDiv00.trackPopup(600, 200, 300, 300);
-	
-};
-
-this.PopupDiv00_onclick = function(obj:nexacro.PopupDiv,e:nexacro.ClickEventInfo)
-{
-	this.PopupDiv00.closePopup();
-};
-
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////서브페이지 2번 //////////////////////////////////////////
+/////////////////////////////////// 파일관리 페이지 /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -638,7 +659,7 @@ this.Grid02_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo
 
 this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	this.go("lim::lim.xfdl");
+	this.go("lim::llim.xfdl");
 	                          
 };
 
@@ -646,9 +667,10 @@ this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////// 배너페이지 3번 ///////////////////////////////////////
+/////////////////////////////////////// 배너 페이지 ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -676,10 +698,7 @@ var nStepIndex = this.getStepIndex();
 
 
 
-this.ImageViewer00.set_image("URL('http://localhost:8080/images/imgjw/고양이.jpg')");
-this.ImageViewer01.set_image("URL('http://localhost:8080/images/imgjw/국기.jpg')");
-this.ImageViewer02.set_image("URL('http://localhost:8080/images/imgjw/황소.jpg')");
-
-
-
+this.ImageViewer00.set_image("URL('http://localhost:8080/images/imgjw/안녕하세요.png')");
+this.ImageViewer01.set_image("URL('http://localhost:8080/images/imgjw/반가워요.jpg')");
+this.ImageViewer02.set_image("URL('http://localhost:8080/images/imgjw/감사합니다.png')");
 
