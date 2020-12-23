@@ -31,8 +31,8 @@
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
         <property name="url" value="jdbc:oracle:thin:@DESKTOP-I292LQ3:1521:orcl" />
-        <property name="username" value="invako"/>
-        <property name="password" value="invako"/>
+        <property name="username" value="DB아이디"/>
+        <property name="password" value="DB패스워드"/>
     </bean>
     
 </beans>
