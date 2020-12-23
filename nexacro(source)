@@ -1,8 +1,9 @@
-//nexacro(source) -연습용-
+//nexacro (연습용) -- 메인페이지
+
 
 <?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="lim" width="1280" height="720" titletext="New Form" onload="FileDownTransfer_onload" background="#606060">
+  <Form id="lim" width="1280" height="720" titletext="New Form" onload="lim_onload" background="#a5a5a5">
     <Layouts>
       <Layout height="720" mobileorientation="landscape" width="1280">
         <Combo id="searchType" taborder="0" text="id" left="40" top="70" width="73" height="30" value="ID" index="0" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" onitemchanged="Combo00_onitemchanged" border="5px solid darkgray" borderRadius="5px">
@@ -23,7 +24,7 @@
             </Rows>
           </Dataset>
         </Combo>
-        <Grid id="Grid00" taborder="1" left="17" top="150" width="393" height="279" binddataset="ds_store_list" oncellclick="Grid00_oncellclick" autofittype="none" borderRadius="20px" border="5px solid darkgray">
+        <Grid id="Grid00" taborder="1" left="17" top="150" width="463" height="279" binddataset="ds_store_list" oncellclick="Grid00_oncellclick" autofittype="col" borderRadius="20px" border="5px solid darkgray">
           <Formats>
             <Format id="KINDS">
               <Columns>
@@ -75,14 +76,14 @@
             </Format>
           </Formats>
         </Grid>
-        <Edit id="keyword" taborder="2" left="120" top="70" width="193" height="30" border="5px solid darkgray" borderRadius="5px"/>
+        <Edit id="keyword" taborder="2" left="120" top="70" width="193" height="30" border="5px solid darkgray" borderRadius="5px" onlbuttondown="keyword_onlbuttondown"/>
         <Static id="Static00" taborder="3" text="물품관리" left="6" top="30" width="229" height="43" font="bold 24px/normal &quot;Verdana&quot;,&quot;Arial Black&quot;"/>
         <Button id="btn_sel" taborder="4" text="조회" left="328" top="70" width="60" height="30" onclick="btn_sel_onclick" borderRadius="10px" background="#38ffc6"/>
         <Div id="Div00" taborder="5" left="71" top="487" width="619" height="129" text="Div00" borderRadius="20px" border="5px solid darkgray">
           <Layouts>
             <Layout>
               <Div id="Div00" taborder="0" text="성함(업체명)" left="14" top="2" width="120" height="32" borderRadius="10px"/>
-              <Edit id="EditName" taborder="1" left="147" top="2" width="210" height="32" borderRadius="10px"/>
+              <Edit id="EditName" taborder="1" left="147" top="2" width="210" height="32" borderRadius="10px" onlbuttondown="Div00_EditName_onlbuttondown"/>
               <Edit id="EditTel" taborder="2" left="147" top="43" width="210" height="32" borderRadius="10px"/>
               <Combo id="ComboKinds" taborder="3" text="구분" left="494" top="34" width="100" height="43" value="" index="-1" onitemchanged="Div00_ComboKinds_onitemchanged" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" borderRadius="10px">
                 <Dataset id="innerdataset">
@@ -108,7 +109,7 @@
         <Div id="Div00_00" taborder="6" text="물품 종류" left="447" top="496" width="110" height="110" borderRadius="10px"/>
         <Div id="Div00_01" taborder="7" text="연락처" left="90" top="534" width="120" height="32" borderRadius="10px"/>
         <Div id="Div00_01_00" taborder="8" text="생성일" left="90" top="572" width="120" height="32" borderRadius="10px"/>
-        <Grid id="Grid01" taborder="9" left="467" top="150" width="380" height="279" binddataset="product_list" autoenter="select" onheadclick="Grid01_onheadclick" borderRadius="20px" font="12pt/normal &quot;Stencil&quot;" border="5px solid darkgray">
+        <Grid id="Grid01" taborder="9" left="570" top="150" width="450" height="279" autoenter="select" onheadclick="Grid01_onheadclick" borderRadius="20px" font="12pt/normal &quot;Stencil&quot;" border="5px solid darkgray" autofittype="col" binddataset="product_list">
           <Formats>
             <Format id="default">
               <Columns>
@@ -143,8 +144,8 @@
         <Button id="Button_insert" taborder="11" text="등록" left="457" top="453" width="67" height="28" onclick="Button_insert_onclick" borderRadius="10px" background="#38ffc6"/>
         <Button id="btn_up" taborder="12" text="수정" left="537" top="452" width="67" height="28" onclick="btn_up_onclick" enable="false" borderRadius="10px" background="#38ffc6"/>
         <Button id="delete_btn" taborder="13" text="삭제" left="617" top="453" width="67" height="28" onclick="delete_btn_onclick" enable="false" borderRadius="10px" background="#38ffc6"/>
-        <Button id="insertsub" taborder="14" text="추가" left="694" top="116" width="53" height="24" onclick="insertsub_onclick" enable="false" borderRadius="10px" background="#38ffc6"/>
-        <Button id="deletesub" taborder="15" text="삭제" left="764" top="116" width="53" height="24" onclick="deletesub_onclick" enable="false" borderRadius="10px" background="#38ffc6"/>
+        <Button id="insertsub" taborder="14" text="추가" left="907" top="116" width="53" height="24" onclick="insertsub_onclick" enable="false" borderRadius="10px" background="#38ffc6"/>
+        <Button id="deletesub" taborder="15" text="삭제" left="967" top="116" width="53" height="24" onclick="deletesub_onclick" enable="false" borderRadius="10px" background="#38ffc6"/>
         <Calendar id="Calendar00" taborder="16" left="223" top="572" width="210" height="32" borderRadius="10px"/>
         <Radio id="Radio00" taborder="17" left="414" top="40" width="177" height="60" datacolumn="datacolumn" codecolumn="codecolumn" direction="vertical" onitemchanged="Radio00_onitemchanged" innerdataset="innerdataset" value="KINDS" text="KINDS" index="0" color="#ffffff">
           <Dataset id="innerdataset">
@@ -164,61 +165,12 @@
             </Rows>
           </Dataset>
         </Radio>
-        <Grid id="file_up_grid" taborder="18" left="879" top="148" width="368" height="181" binddataset="dsFileListup" onexpandup="file_up_grid_onexpandup" borderRadius="20px" border="5px solid darkgray">
-          <Formats>
-            <Format id="default">
-              <Columns>
-                <Column size="80"/>
-                <Column size="80"/>
-              </Columns>
-              <Rows>
-                <Row band="head" size="24"/>
-                <Row size="24"/>
-              </Rows>
-              <Band id="head">
-                <Cell text="fileName"/>
-                <Cell col="1" text="fileSize"/>
-              </Band>
-              <Band id="body">
-                <Cell text="bind:fileName"/>
-                <Cell col="1" text="bind:fileSize"/>
-              </Band>
-            </Format>
-          </Formats>
-        </Grid>
-        <Static id="Static01" taborder="19" text="파일 업/다운 로드" left="880" top="35" width="205" height="31" font="normal 700 15pt/normal &quot;Arial&quot;"/>
-        <Button id="btnAdd_file" taborder="20" text="파일추가" left="921" top="99" width="69" height="29" onclick="btnAdd_file_onclick" borderRadius="10px" background="#707cff"/>
-        <Button id="btnDel_file" taborder="21" text="초기화" left="1001" top="99" width="49" height="29" onclick="btnDel_file_onclick" borderRadius="10px" background="#707cff"/>
-        <Button id="btnSave_file" taborder="22" text="저장" left="1060" top="99" width="49" height="29" onclick="btnSave_file_onclick" borderRadius="10px" background="#707cff"/>
-        <TextArea id="TextArea00" taborder="23" left="880" top="356" width="367" height="114" readonly="true" borderRadius="20px" border="5px solid darkgray"/>
-        <Button id="btn_down" taborder="24" text="다운로드" left="1099" top="496" width="151" height="42" onclick="btn_down_onclick" borderRadius="10px" background="#707cff"/>
-        <Grid id="Grid02" taborder="25" left="880" top="549" width="367" height="150" binddataset="dsFileListdown" borderRadius="20px" border="5px solid darkgray" oncellclick="Grid02_oncellclick">
-          <Formats>
-            <Format id="default">
-              <Columns>
-                <Column size="30"/>
-                <Column size="140"/>
-                <Column size="196"/>
-              </Columns>
-              <Rows>
-                <Row size="24" band="head"/>
-                <Row size="24"/>
-              </Rows>
-              <Band id="head">
-                <Cell/>
-                <Cell col="1" text="REALFILENAME"/>
-                <Cell col="2" text="DISPLAYFILENAME"/>
-              </Band>
-              <Band id="body">
-                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:CHK"/>
-                <Cell col="1" text="bind:REALFILENAME"/>
-                <Cell col="2" text="bind:DISPLAYFILENAME"/>
-              </Band>
-            </Format>
-          </Formats>
-        </Grid>
-        <Button id="btnSearch" taborder="26" text="리스트 불러오기" left="880" top="494" width="146" height="44" onclick="btnSearch_onclick" borderRadius="10px" background="#707cff"/>
-        <ImageViewer id="ImgView" taborder="27" left="706" top="551" width="153" height="146" border="5px solid darkgray" stretch="fixaspectratio"/>
+        <Button id="Button00" taborder="18" text="파일 업/다운로드로 이동" left="601" top="35" width="166" height="55" onclick="Button00_onclick" background="#707cff" borderRadius="10px"/>
+        <PopupDiv id="PopupDiv00" text="안녕하세요!" visible="false" left="363" top="119" width="332" height="367" onclick="PopupDiv00_onclick">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </PopupDiv>
       </Layout>
     </Layouts>
     <Objects>
@@ -272,6 +224,88 @@
           <Row/>
         </Rows>
       </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="searchType" propid="value" datasetid="ds_search" columnid="searchType"/>
+      <BindItem id="item1" compid="keyword" propid="value" datasetid="ds_search" columnid="keyword"/>
+    </Bind>
+  </Form>
+</FDL>
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////// 2번페이지 서브 ///////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="lim" width="1280" height="720" titletext="New Form" onload="FileDownTransfer_onload" background="#a5a5a5">
+    <Layouts>
+      <Layout height="720" mobileorientation="landscape" width="1280">
+        <Grid id="file_up_grid" taborder="0" left="39" top="141" width="368" height="181" onexpandup="file_up_grid_onexpandup" borderRadius="20px" border="5px solid darkgray" binddataset="dsFileListup">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="fileName"/>
+                <Cell col="1" text="fileSize"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:fileName"/>
+                <Cell col="1" text="bind:fileSize"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static01" taborder="1" text="파일 업/다운 로드" left="40" top="28" width="205" height="31" font="normal 700 15pt/normal &quot;Arial&quot;"/>
+        <Button id="btnAdd_file" taborder="2" text="파일추가" left="81" top="92" width="69" height="29" onclick="btnAdd_file_onclick" borderRadius="10px" background="#707cff"/>
+        <Button id="btnDel_file" taborder="3" text="초기화" left="161" top="92" width="49" height="29" onclick="btnDel_file_onclick" borderRadius="10px" background="#707cff"/>
+        <Button id="btnSave_file" taborder="4" text="저장" left="220" top="92" width="49" height="29" onclick="btnSave_file_onclick" borderRadius="10px" background="#707cff"/>
+        <TextArea id="TextArea00" taborder="5" left="40" top="349" width="367" height="114" readonly="true" borderRadius="20px" border="5px solid darkgray"/>
+        <Button id="btn_down" taborder="6" text="다운로드" left="713" top="91" width="146" height="44" onclick="btn_down_onclick" borderRadius="10px" background="#707cff"/>
+        <Grid id="Grid02" taborder="7" left="530" top="160" width="367" height="150" borderRadius="20px" border="5px solid darkgray" oncellclick="Grid02_oncellclick" autofittype="col" binddataset="dsFileListdown">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="30"/>
+                <Column size="140"/>
+                <Column size="196"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1" text="REALFILENAME"/>
+                <Cell col="2" text="DISPLAYFILENAME"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:CHK"/>
+                <Cell col="1" text="bind:REALFILENAME"/>
+                <Cell col="2" text="bind:DISPLAYFILENAME"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btnSearch" taborder="8" text="리스트 불러오기" left="530" top="91" width="146" height="44" onclick="btnSearch_onclick" borderRadius="10px" background="#707cff"/>
+        <ImageViewer id="ImgView" taborder="9" left="526" top="333" width="514" height="337" border="5px solid darkgray" stretch="fixaspectratio"/>
+        <Button id="Button00" taborder="10" text="메인페이지로 이동" left="330" top="16" width="160" height="64" onclick="Button00_onclick" background="#707cff" borderRadius="10px"/>
+        <Div id="Div00" taborder="11" text="Div00" left="140" top="505" width="148" height="110" url="lim::banner.xfdl"/>
+      </Layout>
+    </Layouts>
+    <Objects>
       <FileDialog id="FileDialog00" onclose="FileDialog00_onclose"/>
       <FileUpTransfer id="FileUpTransfer00" onerror="FileUpTransfer00_onerror" onprogress="FileUpTransfer00_onprogress" onsuccess="FileUpTransfer00_onsuccess"/>
       <Dataset id="dsFileListup">
@@ -295,9 +329,26 @@
         </ColumnInfo>
       </Dataset>
     </Objects>
-    <Bind>
-      <BindItem id="item0" compid="searchType" propid="value" datasetid="ds_search" columnid="searchType"/>
-      <BindItem id="item1" compid="keyword" propid="value" datasetid="ds_search" columnid="keyword"/>
-    </Bind>
+  </Form>
+</FDL>
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////// 3번페이지 배너 ///////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="banner" width="200" height="200" titletext="Step" background="#ffffff" ontimer="banner_ontimer" onload="banner_onload">
+    <Layouts>
+      <Layout height="200" width="200" stepcount="3">
+        <ImageViewer id="ImageViewer00" taborder="0" left="2" top="0" width="148" height="100" stretch="fixaspectratio"/>
+        <ImageViewer id="ImageViewer01" taborder="1" left="2" top="0" width="148" height="100" positionstep="1" onclick="ImageViewer00_00_onclick" stretch="fixaspectratio"/>
+        <ImageViewer id="ImageViewer02" taborder="2" left="2" top="0" width="148" height="100" positionstep="2" stretch="fixaspectratio"/>
+      </Layout>
+    </Layouts>
   </Form>
 </FDL>
