@@ -1,5 +1,4 @@
-//nexacro(script) 연습용
-
+//nexacro (연습용) -- 메인페이지 
 
 this.result = -1;
 
@@ -51,12 +50,6 @@ this.deletesub_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 	this.fndelete_sub();
 };
 
-//파일 리스트 불러오기 버튼
-this.btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
-{
-	this.file_Serch();
-}
-
 // 라디오 버튼
 this.Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
 {
@@ -90,7 +83,6 @@ this.fnCallback = function(id, code, message)
 			this.alert('삭제되었습니다.')
 			}
 			break;
-
 	}
 };
 
@@ -183,7 +175,7 @@ this.fnInsert = function ()
 	var callBackFnc = "fnCallback";
 	var isAsync     = true;
 
-  this.transaction(id, url, reqData, respData, Args, callBackFnc, isAsync);
+	this.transaction(id, url, reqData, respData, Args, callBackFnc, isAsync);
  
 };
 
@@ -195,12 +187,12 @@ this.fndelete = function()
 	var ID = this.ds_store_list.getColumn(did,"ID");
 	
 	var id    = "deleteJw";
-  var url   = "svc::deletejw.do";
-  var reqData      = "";
-  var respData     = "";
-  var Args      = "param="+ID;
-  var callBackFnc = "fnCallback";
-  var isAsync     = true;
+	var url   = "svc::deletejw.do";
+	var reqData      = "";
+	var respData     = "";
+	var Args      = "param="+ID;
+	var callBackFnc = "fnCallback";
+	var isAsync     = true;
 
   this.transaction(id, url, reqData, respData, Args, callBackFnc, isAsync);
   	
@@ -235,7 +227,6 @@ this.fnUpdate = function ()
 	
 	var store_info = this.ds_info
 	
-	
 	var id = "insertJw";  
     var url = "svc::updatejw.do";
     var reqData = "store_info=ds_info";
@@ -263,39 +254,18 @@ this.fninsert_sub = function()
 
 this.fndelete_sub = function()
 {
-		var nRow = this.product_list.rowposition;
-		var ID = this.product_list.getColumn(nRow,"PRO_ID");
+	var nRow = this.product_list.rowposition;
+	var ID = this.product_list.getColumn(nRow,"PRO_ID");
 	
 	var id    = "deleteJw";
-  var url   = "svc::deletejw_pro.do";
-  var reqData      = "";
-  var respData     = "";
-  var Args      = "param="+ID;
-  var callBackFnc = "fnCallback";
-  var isAsync     = true;
+	var url   = "svc::deletejw_pro.do";
+	var reqData      = "";
+	var respData     = "";
+	var Args      = "param="+ID;
+	var callBackFnc = "fnCallback";
+	var isAsync     = true;
 
   this.transaction(id, url, reqData, respData, Args, callBackFnc, isAsync);
-};
-
-//파일 불러오기 트랜잭션
-
-this.file_Serch = function()
-{
- var id    = "selectfilelist";
-  var url   = "svc::selectfilelist.do";
-  var reqData      = "";
-  var respData     = "dsFileListdown=jw_list";
-  var Arg      = "";
-  var callBackFnc = "";
-  var isAsync     = true;
-
-  this.transaction(id ,     // transaction을 구분하기 위한 svc id값
-            url ,   // trabsaction을 요청할 주소
-            reqData ,     // 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
-            respData ,     // 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
-            Arg,     // 입력값으로 보낼 arguments, a=b
-            callBackFnc,   // transaction의 결과를 받을 Function 이름
-            isAsync);     // 비동기통신 여부 [생략가능]
 };
 
 // 초기화 
@@ -310,6 +280,97 @@ this.fn_null = function()
 	
 
 
+
+this.keyword_onlbuttondown = function(obj:nexacro.Edit,e:nexacro.SetFocusEventInfo)
+{
+	this.alert('신규 등록 하려면 아래에 있는 표를 작성하세요. ');
+};
+
+
+this.Div00_EditName_onlbuttondown = function(obj:nexacro.Edit,e:nexacro.MouseEventInfo)
+{
+	this.alert('기존 정보를 수정하려면 조회 버튼을 클릭하세요. ');
+};
+
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.go("lim::ljw.xfdl");
+	                          
+};
+
+this.Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.go("lim::popup.xfdl");
+	                          
+};
+
+this.lim_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+    this.PopupDiv00.trackPopup(600, 200, 300, 300);
+	
+};
+
+this.PopupDiv00_onclick = function(obj:nexacro.PopupDiv,e:nexacro.ClickEventInfo)
+{
+	this.PopupDiv00.closePopup();
+};
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////서브페이지 2번 //////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+this.result = -1;
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// Button ///////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//파일 리스트 불러오기 버튼
+this.btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.file_Serch();
+	this.alert('파일이 조회 되었습니다.')
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// Transaction //////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//파일 불러오기 트랜잭션
+
+this.file_Serch = function()
+{
+	var id    = "selectfilelist";
+	var url   = "svc::selectfilelist.do";
+	var reqData      = "";
+	var respData     = "dsFileListdown=jw_list";
+	var Arg      = "";
+	var callBackFnc = "";
+	var isAsync     = true;
+
+	this.transaction(id ,     // transaction을 구분하기 위한 svc id값
+            url ,   // trabsaction을 요청할 주소
+            reqData ,     // 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+            respData ,     // 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+            Arg,     // 입력값으로 보낼 arguments, a=b
+            callBackFnc,   // transaction의 결과를 받을 Function 이름
+            isAsync);     // 비동기통신 여부 [생략가능]
+};
+
+	
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -574,4 +635,51 @@ this.Grid02_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo
 	var filename= (this.dsFileListdown.getColumn(id,"REALFILENAME"));
 	this.ImgView.set_image("URL('http://localhost:8080/images/imgjw/"+filename+"')");
 }
+
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.go("lim::lim.xfdl");
+	                          
+};
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////// 배너페이지 3번 ///////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+this.STEP_COUNT = this.getLayoutInfo("default","stepcount");
+
+this.banner_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+  //폼 로드 시 ontimer 이벤트 호출
+ this.setTimer(1, 2000 );
+}
+this.banner_ontimer = function(obj:Form, e:nexacro.TimerEventInfo)
+{
+var nStepIndex = this.getStepIndex();
+ nStepIndex ++;
+ 
+ if(nStepIndex >= this.STEP_COUNT)
+ {
+  nStepIndex = 0;
+ }
+ this.setStepIndex(nStepIndex);
+
+
+}
+
+
+
+this.ImageViewer00.set_image("URL('http://localhost:8080/images/imgjw/고양이.jpg')");
+this.ImageViewer01.set_image("URL('http://localhost:8080/images/imgjw/국기.jpg')");
+this.ImageViewer02.set_image("URL('http://localhost:8080/images/imgjw/황소.jpg')");
+
+
+
 
