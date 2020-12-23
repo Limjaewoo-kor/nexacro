@@ -1,9 +1,34 @@
 //nexacro (연습용) -- 메인페이지
 
+<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="lim" width="1000" height="500" titletext="New Form" onload="lim_onload" background="aliceblue">
+    <Layouts>
+      <Layout height="500" width="1000" mobileorientation="landscape">
+        <Button id="object_btn" taborder="0" text="물 품&#13;&#10;관 리" left="184" top="67" width="206" height="163" onclick="object_btn_onclick" borderRadius="20px" background="pink" font=" 20pt/normal &quot;휴먼둥근헤드라인&quot;" color="aliceblue" icon="url('Images::img_emp15.png')"/>
+        <Button id="file_btn" taborder="1" text="파 일&#13;&#10;관 리" left="580" top="67" width="206" height="163" onclick="file_btn_onclick" borderRadius="20px" background="pink" font=" 20pt/normal &quot;휴먼둥근헤드라인&quot;" color="aliceblue" icon="url('Images::img_emp16.png')"/>
+        <PopupDiv id="PopupDiv00" text="공지사항" visible="false" left="318" top="87" width="332" height="367" onclick="PopupDiv00_onclick" background="yellow" font=" 20pt/normal &quot;휴먼둥근헤드라인&quot;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </PopupDiv>
+        <Div id="Div00" taborder="2" text="Div00" left="406" top="110" width="148" height="110" url="lim::banner.xfdl"/>
+        <ImageViewer id="ImageViewer00" taborder="3" left="184" top="280" width="602" height="207"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// 물품관리 페이지 /////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 <?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="lim" width="1280" height="720" titletext="New Form" onload="lim_onload" background="#a5a5a5">
+  <Form id="llim" width="1280" height="720" titletext="New Form" onload="lim_onload" background="pink">
     <Layouts>
       <Layout height="720" mobileorientation="landscape" width="1280">
         <Combo id="searchType" taborder="0" text="id" left="40" top="70" width="73" height="30" value="ID" index="0" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" onitemchanged="Combo00_onitemchanged" border="5px solid darkgray" borderRadius="5px">
@@ -78,7 +103,7 @@
         </Grid>
         <Edit id="keyword" taborder="2" left="120" top="70" width="193" height="30" border="5px solid darkgray" borderRadius="5px" onlbuttondown="keyword_onlbuttondown"/>
         <Static id="Static00" taborder="3" text="물품관리" left="6" top="30" width="229" height="43" font="bold 24px/normal &quot;Verdana&quot;,&quot;Arial Black&quot;"/>
-        <Button id="btn_sel" taborder="4" text="조회" left="328" top="70" width="60" height="30" onclick="btn_sel_onclick" borderRadius="10px" background="#38ffc6"/>
+        <Button id="btn_sel" taborder="4" text="조회" left="328" top="70" width="60" height="30" onclick="btn_sel_onclick" borderRadius="20px" background="#38ffc6" icon="url('Images::img_b_search.png')"/>
         <Div id="Div00" taborder="5" left="71" top="487" width="619" height="129" text="Div00" borderRadius="20px" border="5px solid darkgray">
           <Layouts>
             <Layout>
@@ -140,12 +165,12 @@
             </Format>
           </Formats>
         </Grid>
-        <Button id="btn_reset" taborder="10" text="초기화" left="377" top="453" width="67" height="28" onclick="btn_reset_onclick" borderRadius="10px" background="#38ffc6"/>
-        <Button id="Button_insert" taborder="11" text="등록" left="457" top="453" width="67" height="28" onclick="Button_insert_onclick" borderRadius="10px" background="#38ffc6"/>
-        <Button id="btn_up" taborder="12" text="수정" left="537" top="452" width="67" height="28" onclick="btn_up_onclick" enable="false" borderRadius="10px" background="#38ffc6"/>
-        <Button id="delete_btn" taborder="13" text="삭제" left="617" top="453" width="67" height="28" onclick="delete_btn_onclick" enable="false" borderRadius="10px" background="#38ffc6"/>
-        <Button id="insertsub" taborder="14" text="추가" left="907" top="116" width="53" height="24" onclick="insertsub_onclick" enable="false" borderRadius="10px" background="#38ffc6"/>
-        <Button id="deletesub" taborder="15" text="삭제" left="967" top="116" width="53" height="24" onclick="deletesub_onclick" enable="false" borderRadius="10px" background="#38ffc6"/>
+        <Button id="btn_reset" taborder="10" text="초기화" left="377" top="453" width="67" height="28" onclick="btn_reset_onclick" borderRadius="20px" background="#38ffc6" icon="url('Images::img_btn_close.png')"/>
+        <Button id="Button_insert" taborder="11" text="등록" left="457" top="453" width="67" height="28" onclick="Button_insert_onclick" borderRadius="20px" background="#38ffc6" icon="url('Images::img_b_save.png')"/>
+        <Button id="btn_up" taborder="12" text="수정" left="537" top="452" width="67" height="28" onclick="btn_up_onclick" enable="false" borderRadius="20px" background="#38ffc6" icon="url('Images::img_b_save.png')"/>
+        <Button id="delete_btn" taborder="13" text="삭제" left="617" top="453" width="67" height="28" onclick="delete_btn_onclick" enable="false" borderRadius="20px" background="#38ffc6" icon="url('Images::img_b_delete.png')"/>
+        <Button id="insertsub" taborder="14" text="추가" left="870" top="116" width="67" height="28" onclick="insertsub_onclick" enable="false" borderRadius="20px" background="#38ffc6" icon="url('Images::img_b_insert.png')"/>
+        <Button id="deletesub" taborder="15" text="삭제" left="953" top="116" width="67" height="28" onclick="deletesub_onclick" enable="false" borderRadius="20px" background="#38ffc6" icon="url('Images::img_b_delete.png')"/>
         <Calendar id="Calendar00" taborder="16" left="223" top="572" width="210" height="32" borderRadius="10px"/>
         <Radio id="Radio00" taborder="17" left="414" top="40" width="177" height="60" datacolumn="datacolumn" codecolumn="codecolumn" direction="vertical" onitemchanged="Radio00_onitemchanged" innerdataset="innerdataset" value="KINDS" text="KINDS" index="0" color="#ffffff">
           <Dataset id="innerdataset">
@@ -165,12 +190,7 @@
             </Rows>
           </Dataset>
         </Radio>
-        <Button id="Button00" taborder="18" text="파일 업/다운로드로 이동" left="601" top="35" width="166" height="55" onclick="Button00_onclick" background="#707cff" borderRadius="10px"/>
-        <PopupDiv id="PopupDiv00" text="안녕하세요!" visible="false" left="363" top="119" width="332" height="367" onclick="PopupDiv00_onclick">
-          <Layouts>
-            <Layout/>
-          </Layouts>
-        </PopupDiv>
+        <Button id="Button00" taborder="18" text="파일 관리 페이지로 이동" left="880" top="16" width="166" height="55" onclick="Button00_onclick" background="#707cff" borderRadius="20px"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -233,17 +253,16 @@
 </FDL>
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////// 2번페이지 서브 ///////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// 파일관리 페이지 /////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 <?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="lim" width="1280" height="720" titletext="New Form" onload="FileDownTransfer_onload" background="#a5a5a5">
+  <Form id="ljw" width="1280" height="720" titletext="New Form" onload="FileDownTransfer_onload" background="pink">
     <Layouts>
       <Layout height="720" mobileorientation="landscape" width="1280">
         <Grid id="file_up_grid" taborder="0" left="39" top="141" width="368" height="181" onexpandup="file_up_grid_onexpandup" borderRadius="20px" border="5px solid darkgray" binddataset="dsFileListup">
@@ -269,11 +288,11 @@
           </Formats>
         </Grid>
         <Static id="Static01" taborder="1" text="파일 업/다운 로드" left="40" top="28" width="205" height="31" font="normal 700 15pt/normal &quot;Arial&quot;"/>
-        <Button id="btnAdd_file" taborder="2" text="파일추가" left="81" top="92" width="69" height="29" onclick="btnAdd_file_onclick" borderRadius="10px" background="#707cff"/>
-        <Button id="btnDel_file" taborder="3" text="초기화" left="161" top="92" width="49" height="29" onclick="btnDel_file_onclick" borderRadius="10px" background="#707cff"/>
-        <Button id="btnSave_file" taborder="4" text="저장" left="220" top="92" width="49" height="29" onclick="btnSave_file_onclick" borderRadius="10px" background="#707cff"/>
+        <Button id="btnAdd_file" taborder="2" text="파일추가" left="50" top="93" width="80" height="28" onclick="btnAdd_file_onclick" borderRadius="20px" background="#38ffc6" icon="url('Images::img_b_insert.png')"/>
+        <Button id="btnDel_file" taborder="3" text="초기화" left="153" top="93" width="67" height="28" onclick="btnDel_file_onclick" borderRadius="20px" background="#38ffc6" icon="url('Images::img_btn_close.png')"/>
+        <Button id="btnSave_file" taborder="4" text="저장" left="243" top="93" width="67" height="28" onclick="btnSave_file_onclick" borderRadius="20px" background="#38ffc6" icon="url('Images::img_b_save.png')"/>
         <TextArea id="TextArea00" taborder="5" left="40" top="349" width="367" height="114" readonly="true" borderRadius="20px" border="5px solid darkgray"/>
-        <Button id="btn_down" taborder="6" text="다운로드" left="713" top="91" width="146" height="44" onclick="btn_down_onclick" borderRadius="10px" background="#707cff"/>
+        <Button id="btn_down" taborder="6" text="다운로드" left="713" top="91" width="146" height="44" onclick="btn_down_onclick" borderRadius="20px" background="#38ffc6" icon="url('Images::img_btn_save.png')"/>
         <Grid id="Grid02" taborder="7" left="530" top="160" width="367" height="150" borderRadius="20px" border="5px solid darkgray" oncellclick="Grid02_oncellclick" autofittype="col" binddataset="dsFileListdown">
           <Formats>
             <Format id="default">
@@ -299,10 +318,9 @@
             </Format>
           </Formats>
         </Grid>
-        <Button id="btnSearch" taborder="8" text="리스트 불러오기" left="530" top="91" width="146" height="44" onclick="btnSearch_onclick" borderRadius="10px" background="#707cff"/>
+        <Button id="btnSearch" taborder="8" text="리스트 불러오기" left="530" top="91" width="146" height="44" onclick="btnSearch_onclick" borderRadius="20px" background="#38ffc6" icon="url('Images::img_b_search.png')"/>
         <ImageViewer id="ImgView" taborder="9" left="526" top="333" width="514" height="337" border="5px solid darkgray" stretch="fixaspectratio"/>
-        <Button id="Button00" taborder="10" text="메인페이지로 이동" left="330" top="16" width="160" height="64" onclick="Button00_onclick" background="#707cff" borderRadius="10px"/>
-        <Div id="Div00" taborder="11" text="Div00" left="140" top="505" width="148" height="110" url="lim::banner.xfdl"/>
+        <Button id="Button00" taborder="10" text="물품 관리 페이지로 이동" left="880" top="16" width="166" height="55" onclick="Button00_onclick" background="#707cff" borderRadius="20px"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -333,12 +351,12 @@
 </FDL>
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////// 3번페이지 배너 ///////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// 배너 페이지 ///////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 <?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
@@ -352,3 +370,5 @@
     </Layouts>
   </Form>
 </FDL>
+
+
