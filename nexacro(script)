@@ -1,13 +1,32 @@
 //nexacro (연습용) -- 메인페이지
 
+var id;
+
+
 // PopUp 관련
 this.lim_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 {
-    this.PopupDiv00.trackPopup(530, 300, 300, 300);
-	
-this.ImageViewer00.set_image("URL('http://localhost:8080/images/imgjw/하늘.jpg')");
-	
+	this.PopupDiv00.trackPopup(530, 300, 300, 300);	
+	this.ImageViewer00.set_image("URL('http://localhost:8080/images/imgjw/하늘.jpg')");
+	var id = nexacro.getCookieVariable("ID");
+	if(id == undefined){
+		trace('a');
+
+		this.logout.set_enable(false);
+		this.login.set_enable(true);
+	}else if(id == "undefined"){
+		trace('a-1');
+
+		this.logout.set_enable(false);
+		this.login.set_enable(true);
+	}else{
+		trace('b');
+
+		this.logout.set_enable(true);
+		this.login.set_enable(false);
+	}
 };
+
 
 this.PopupDiv00_onclick = function(obj:nexacro.PopupDiv,e:nexacro.ClickEventInfo)
 {
@@ -27,14 +46,106 @@ this.object_btn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 //파일관리
 this.file_btn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	this.go("lim::ljw.xfdl");
-	                          
+	this.go("lim::ljw.xfdl");             
+};
+
+//로그인 버튼
+
+this.login_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.go("lim::login.xfdl");
+};
+
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	location.href="jsp.do";
+};
+
+this.logout_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var id = "logoutJw";  
+    var url = "svc::logoutjw.do";
+    var reqData = "";
+    var respData = "";
+    var Args = "";
+    var callBackFnc = "fnCallback";
+    var isAsync = true;
+	
+    this.transaction(id, url, reqData, respData, Args, callBackFnc, isAsync);
 };
 
 
+//처리콜백 함수
+this.fnCallback = function(id, code, message)
+{
+
+  switch(id)
+  {
+    case "logoutJw":
+		nexacro.setCookieVariable("ID", undefined);
+		this.go("lim::lim.xfdl");
+        this.alert("로그아웃 완료.");
+      break;
+	}
+};
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////// 물품관리 페이지 /////////////////////////////////////
+/////////////////////////////////// 로그인 페이지 /////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+this.result=-1;
+this.login_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fn_login();
+};
+
+
+//처리콜백 함수
+this.fnCallback = function(id, code, message)
+{
+
+  switch(id)
+  {
+    case "loginJw":
+      if(this.result > -1){
+		nexacro.setCookieVariable("ID", this.EditId.value);
+		this.go("lim::lim.xfdl");
+        this.alert("로그인 완료.");	
+      }else{
+		this.alert("ID 또는 PW가 불일치합니다.");
+	  }
+      break;
+	}
+};
+
+
+this.fn_login = function ()
+{
+	this.login_ds.setColumn(0, 'ID', this.EditId.value);
+	this.login_ds.setColumn(0, 'PASSWORD', this.EditPw.value);
+	var store_info = this.login_ds
+	
+	var id = "loginJw";  
+    var url = "svc::loginjw.do";
+    var reqData = "store_info=login_ds";
+    var respData = "";
+    var Args = "";
+    var callBackFnc = "fnCallback";
+    var isAsync = true;
+	
+    this.transaction(id, url, reqData, respData, Args, callBackFnc, isAsync);
+};
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// 물품관리 페이지 ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 
