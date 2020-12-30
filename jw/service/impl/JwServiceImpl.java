@@ -84,6 +84,12 @@ public class JwServiceImpl extends EgovAbstractServiceImpl implements JwService 
 	public List<Map<String, Object>> selfile() {
 		return jwMapper.selfile();
 	}
+
+
+	@Override
+	public List<Map<String, Object>> loginid(Map<String, String> param) {
+		return jwMapper.loginid(param);
+	}
 	
 
 }

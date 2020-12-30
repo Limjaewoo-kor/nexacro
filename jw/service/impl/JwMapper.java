@@ -26,4 +26,6 @@ public interface JwMapper {
 	 List<Map<String,Object>> pro_up_sel(Map<String, String> param) throws Exception;
 
 		List<Map<String, Object>> selfile();
+		
+		List<Map<String,Object>> loginid(Map<String,String> param);
 }

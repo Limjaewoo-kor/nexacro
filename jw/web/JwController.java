@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +25,8 @@ public class JwController {
   
     @Resource(name = "jwService")
     private JwService jwService;
+    Cookie cookie;
+ 
     
     @RequestMapping(value="/nexacro/selectjw.do")
   public NexacroResult selectJw(@ParamDataSet(name = "search_info", required = false) Map<String,String> param) {
@@ -161,7 +165,52 @@ public class JwController {
 
           return result;
       }
+    @RequestMapping(value="/nexacro/loginjw.do")
+    public NexacroResult Adminlogin(HttpServletResponse res,@ParamDataSet(name="store_info", required = false) Map<String,String> param ) {
+    	int suc =0;
+    	List<Map<String, Object>> list = null;
+    	try{
+    		list = jwService.loginid(param);
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	cookie = new Cookie("ID",(String) list.get(0).get("ID"));
+    	if(list.size()==0){
+    		
+    		suc = -1;
+    		
+    	}else {
+    		cookie.setComment((String) list.get(0).get("ID"));
+    		cookie.setPath("/");
+    		cookie.setMaxAge(60*60*24); // 유효기간 1일
+    		suc = 1;
+    	}
+    	NexacroResult result = new NexacroResult();
+    	res.addCookie(cookie);
+    	result.addVariable("result", suc);
+    	System.out.println((String) list.get(0).get("ID"));
+
+    
+    	return result;
+    }
+    @RequestMapping(value="/nexacro/jsp.do")
+    public String jsp() {
+   
+          
+          return "jw/jw.html";
+      }
+    @RequestMapping(value="/nexacro/logoutjw.do")
+    public NexacroResult Adminlogin(HttpServletResponse res) {
+    	int suc =0;
+   
+    	 cookie = new Cookie("ID",null);
+    	cookie.setMaxAge(0);
+    	
+    	NexacroResult result = new NexacroResult();
+    	res.addCookie(cookie);
+    	result.addVariable("result", suc);
+   
+    	return result;
+    }
       
-  
-         
 }

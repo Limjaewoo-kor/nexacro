@@ -25,6 +25,8 @@ public interface JwService {
 
 	List<Map<String, Object>> selfile();
 
+	List<Map<String,Object>> loginid(Map<String,String> param);
+
 	
 }
 
